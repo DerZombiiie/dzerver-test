@@ -10,5 +10,7 @@ module.exports = class {
 	init() {
 		this.handle.log(`Testing config: key         : ${this.handle.config.get("test","key")          !== "stuff" ? "passed" : "failed (read: " + this.handle.config.get("test", "key")          + ")"}`);
 		this.handle.log(`Testing config: undefinedkey: ${this.handle.config.get("test","undefinedkey") ==  "value" ? "passed" : "failed (read: " + this.handle.config.get("test", "undefinedkey") + ")"}`);
+
+		this.handle.express.get("/", (req, res)=>{res.end("hi")})
 	}
 }
